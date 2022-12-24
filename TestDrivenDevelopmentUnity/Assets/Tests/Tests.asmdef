@@ -1,7 +1,7 @@
 {
     "name": "Tests",
     "rootNamespace": "",
-    "references": [
+    "references": [ 
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Production",

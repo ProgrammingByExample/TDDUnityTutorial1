@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Production.Display
 {
-    public class TextBoxController : MonoBehaviour
+    public class TextBoxController : MonoBehaviour 
     {
         public TMPro.TextMeshProUGUI DisplayText;
         

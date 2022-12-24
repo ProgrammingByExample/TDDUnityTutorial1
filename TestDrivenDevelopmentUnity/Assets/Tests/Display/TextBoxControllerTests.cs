@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 
 namespace Tests.Display
 {
-    public class TextBoxControllerTests
+    public class TextBoxControllerTests 
     {
         [Test]
         public void UpdateText_DoesNotThrowAnException_WhenDisplayTextIsNullTest()
