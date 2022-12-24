@@ -21,8 +21,23 @@ namespace Production.Display
                 Debug.LogWarning($"{nameof(DisplayText)} was null. Nothing was updated.");
                 return;
             }
-
+            
             DisplayText.text = newValue;
+
+            if (InteractionImage is not null)
+            {
+                Color current = InteractionImage.color;
+                if (interaction == ETextBoxInteraction.Automatic)
+                {
+                    current.a = 0;
+                }
+                else
+                {
+                    current.a = 1;
+                }
+                
+                InteractionImage.color = current;
+            }
         }
     }
 }

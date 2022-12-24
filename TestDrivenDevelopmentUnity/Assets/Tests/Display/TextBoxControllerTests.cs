@@ -19,19 +19,21 @@ namespace Tests.Display
         
         private GameObject canvasObject;
         private TMPro.TextMeshProUGUI textDisplay;
+
+        private GameObject imageObject;
         private RawImage rawImage;
         
         [SetUp]
         public void Setup()
         {
             this.tbcObject = new GameObject();
-            this.tbcObject.AddComponent(typeof(TextBoxController));
-            this.textBoxController = this.tbcObject.GetComponent<TextBoxController>();
+            this.textBoxController = this.tbcObject.AddComponent<TextBoxController>();
+
+            this.canvasObject = new GameObject("Canvas");
+            this.textDisplay = this.canvasObject.AddComponent<TMPro.TextMeshProUGUI>();
             
-            this.canvasObject = new GameObject();
-            this.canvasObject.AddComponent(typeof(TMPro.TextMeshProUGUI));
-            this.textDisplay = canvasObject.GetComponent<TMPro.TextMeshProUGUI>();
-            this.rawImage = canvasObject.GetComponent<RawImage>();
+            this.imageObject = new GameObject("Just image");
+            this.rawImage = this.imageObject.AddComponent<RawImage>();
         }
 
         [TearDown]
@@ -39,6 +41,7 @@ namespace Tests.Display
         {
             Object.DestroyImmediate(this.tbcObject);
             Object.DestroyImmediate(this.canvasObject);
+            Object.DestroyImmediate(this.imageObject);
         }
         
         [Test]
@@ -88,7 +91,7 @@ namespace Tests.Display
         [Test]
         public void  UpdateText_ShowsPlayerButtonMarker_WhenGivenPlayerInteractionTest()
         {
-            float expectedOpacity = 255;
+            float expectedOpacity = 1;
             string givenText = "exampleText";
             
             // Arrange
@@ -99,7 +102,7 @@ namespace Tests.Display
             this.textBoxController.UpdateText(givenText, ETextBoxInteraction.PlayerInteraction);
 
             // Assert
-            Assert.AreEqual(expectedOpacity, this.rawImage.color.a);
+            Assert.AreEqual(expectedOpacity, this.textBoxController.InteractionImage.color.a);
         }
         
         [Test]
@@ -112,11 +115,13 @@ namespace Tests.Display
             this.textBoxController.DisplayText = this.textDisplay;
             this.textBoxController.InteractionImage = this.rawImage;
             
+            
             // Act
             this.textBoxController.UpdateText(givenText);
 
             // Assert
-            Assert.AreEqual(expectedOpacity, this.rawImage.color.a);
+            Assert.IsNotNull(this.textBoxController.InteractionImage);
+            Assert.AreEqual(expectedOpacity, this.textBoxController.InteractionImage.color.a);
         }
     }
 }
