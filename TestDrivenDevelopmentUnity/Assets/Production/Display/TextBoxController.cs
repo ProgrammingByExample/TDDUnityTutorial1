@@ -80,21 +80,26 @@ namespace Production.Display
         
 #if UNITY_EDITOR
 
+        [Header("Test the Text Box")]
+        
         [SerializeField]
+        [Tooltip("Text to enter in the text box")]
         private string debugUpdateText;
 
         [SerializeField]
+        [Tooltip("How the box should react")]
         private ETextBoxInteraction debugUpdateInteraction;
-        
+
         /// <summary>
-        /// Tests update text
+        /// Update the text box with the options at the end of the Script
         /// </summary>
         [ContextMenu("Update text test")]
+        [Tooltip("Update the text box with the options at the end of the Script")]
         private void TestUpdateText()
         {
             UpdateText(this.debugUpdateText, this.debugUpdateInteraction);
         }
-        
+
 #endif
     }
 }
