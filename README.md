@@ -1,6 +1,5 @@
-# Unity TDD Blank Project Template
-This is a blank Unity project setup for Test Driven Development.
-This code seeks to provide a small project with a few tests which may be played around with or simply viewed to gain further understanding.
+# Stop pressing play- Unity Test Driven Development
+This is the code created to demonstrate some basic test driven development concepts in this [article](https://scottgarryfoster.medium.com/1e6ee4cde656). This code seeks to provide a small project with a few tests which may be played around with or simply viewed to gain further understanding.
 ## Installation
 1. Install the [Unity Hub](https://unity.com/download)
 2. Install version 2022.2.1f1
