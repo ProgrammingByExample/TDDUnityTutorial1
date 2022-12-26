@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,5 +77,24 @@ namespace Production.Display
             
             InteractionImage.color = current;
         }
+        
+#if UNITY_EDITOR
+
+        [SerializeField]
+        private string debugUpdateText;
+
+        [SerializeField]
+        private ETextBoxInteraction debugUpdateInteraction;
+        
+        /// <summary>
+        /// Tests update text
+        /// </summary>
+        [ContextMenu("Update text test")]
+        private void TestUpdateText()
+        {
+            UpdateText(this.debugUpdateText, this.debugUpdateInteraction);
+        }
+        
+#endif
     }
 }
